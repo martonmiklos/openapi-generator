@@ -32,6 +32,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
+import java.net.URLEncoder;
 
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import static org.openapitools.codegen.config.CodegenConfiguratorUtils.*;

@@ -407,7 +407,7 @@ void {{classname}}::{{nickname}}({{#allParams}}{{#required}}const {{{dataType}}}
         fullPath.append(paramString);
         {{/isEnumRef}}{{/isEnum}}
         {{/isPrimitiveType}}{{#isPrimitiveType}}
-        fullPath.append(QUrl::toPercentEncoding("{{baseName}}")).append(querySuffix).append(QUrl::toPercentEncoding(::{{cppNamespace}}::toStringValue({{paramName}}{{^required}}.stringValue(){{/required}})));
+        fullPath.append(QUrl::toPercentEncoding("{{baseName}}")).append(querySuffix).append(QUrl::toPercentEncoding(::{{cppNamespace}}::toStringValue({{paramName}}{{^required}}.stringValue(){{/required}}>
 {{/isPrimitiveType}}
 {{/collectionFormat}}
 {{#collectionFormat}}

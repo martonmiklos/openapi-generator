@@ -20,6 +20,9 @@ package org.openapitools.codegen;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.tags.Tag;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class CodegenOperation {
@@ -432,6 +435,7 @@ public class CodegenOperation {
         sb.append(", unescapedNotes='").append(unescapedNotes).append('\'');
         sb.append(", notes='").append(notes).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", escapedBaseName='").append(URLEncoder.encode(baseName, StandardCharsets.UTF_8).replaceAll("\\+", "%20")).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
         sb.append(", discriminator=").append(discriminator);
         sb.append(", consumes=").append(consumes);

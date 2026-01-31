@@ -17,6 +17,16 @@
 
 package org.openapitools.codegen;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 import io.swagger.v3.oas.models.examples.Example;
 import lombok.Getter;
 import lombok.Setter;
@@ -439,6 +449,7 @@ public class CodegenParameter implements IJsonSchemaValidationProperties {
         sb.append(", isModel=").append(isModel);
         sb.append(", isExplode=").append(isExplode);
         sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", escapedBaseName='").append(URLEncoder.encode(baseName, StandardCharsets.UTF_8).replaceAll("\\+", "%20")).append('\'');
         sb.append(", paramName='").append(paramName).append('\'');
         sb.append(", dataType='").append(dataType).append('\'');
         sb.append(", datatypeWithEnum='").append(datatypeWithEnum).append('\'');

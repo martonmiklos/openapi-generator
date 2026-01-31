@@ -20,7 +20,10 @@ package org.openapitools.codegen;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperties {
     /**
@@ -975,6 +978,7 @@ public class CodegenProperty implements Cloneable, IJsonSchemaValidationProperti
         final StringBuilder sb = new StringBuilder("CodegenProperty{");
         sb.append("openApiType='").append(openApiType).append('\'');
         sb.append(", baseName='").append(baseName).append('\'');
+        sb.append(", escapedBaseName='").append(URLEncoder.encode(baseName, StandardCharsets.UTF_8).replaceAll("\\+", "%20")).append('\'');
         sb.append(", complexType='").append(complexType).append('\'');
         sb.append(", getter='").append(getter).append('\'');
         sb.append(", setter='").append(setter).append('\'');
